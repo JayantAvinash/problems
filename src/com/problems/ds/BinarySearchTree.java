@@ -1,5 +1,7 @@
 package com.problems.ds;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class BinarySearchTree {
@@ -112,6 +114,23 @@ public class BinarySearchTree {
 			postorder(root2.lTree);
 			postorder(root2.rTree);
 			System.out.print(root2.value + "\t");
+		}
+	}
+	
+	public void levelOrderTraversal() {
+		Queue<Node> queue = new LinkedList<Node>();
+		if(root != null) {
+			queue.add(root);
+		}
+		while(!queue.isEmpty()) {
+			Node n = queue.poll();
+			System.out.print(n.value + "\t");
+			if(n.lTree != null) {
+				queue.offer(n.lTree);
+			}
+			if(n.rTree != null) {
+				queue.offer(n.rTree);
+			}
 		}
 	}
 	
@@ -432,6 +451,8 @@ public class BinarySearchTree {
 		//bst.postorder();
 		System.out.println(bst.getNthSmallestElementByAugmentedTree(8));
 		bst.printElementsByLevel();
+		System.out.println();
+		bst.levelOrderTraversal();
 		//bst.postOrderTwoStack();
 	}
 
