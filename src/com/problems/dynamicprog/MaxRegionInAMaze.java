@@ -6,7 +6,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class Solution {
+public class MaxRegionInAMaze {
     
     public int getMaxRegion(int[][] arr, int n , int m, int i, int j) {
         if(i < 0 || j < 0 || i >= n || j >= m || arr[i][j] == -1 || arr[i][j] == 1) {
@@ -30,7 +30,7 @@ public class Solution {
                 arr[i][j] = sc.nextInt() - 1;
             }
         }
-        Solution s = new Solution();
+        MaxRegionInAMaze s = new MaxRegionInAMaze();
         int max = 0;
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
